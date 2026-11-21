@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar Senja — fitted launch-value board</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="mark">◐</div>
+    <div>
+      <h1>TOKEN RADAR <span class="senja">SENJA</span></h1>
+      <p class="sub">Pre-token protocols, ranked by a fitted implied value. <em>Senja</em> is dusk in Indonesian — the hour before a launch.</p>
+    </div>
+  </div>
+  <div class="asof" id="asof">Snapshot —</div>
+</header>
+
+<section class="kpis" id="kpis" aria-label="Coverage and model fit"></section>
+
+<section class="integrity" id="integrity" aria-label="Integrity strip"></section>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="board" class="on">Board</button>
+  <button data-tab="live">Live tokens</button>
+  <button data-tab="aside">Set aside</button>
+</nav>
+
+<section class="filters" id="filters">
+  <label>Category <select id="f-cat"><option value="">All categories</option></select></label>
+  <label>Chain <select id="f-chain"><option value="">All chains</option></select></label>
+  <label>Verdict <select id="f-verdict"><option value="">All verdicts</option><option value="farm">farm</option><option value="thin">thin</option><option value="skip">skip</option></select></label>
+  <label>Min TVL <select id="f-tvl"><option value="0">Any TVL</option><option value="50000000">≥ $50M</option><option value="100000000">≥ $100M</option><option value="500000000">≥ $500M</option><option value="1000000000">≥ $1B</option></select></label>
+  <label class="check"><input type="checkbox" id="f-watch"> Watchlist only</label>
+  <label class="search">Search <input type="search" id="f-q" placeholder="protocol name or slug"></label>
+</section>
+
+<main>
+  <div id="detail" class="detail" hidden></div>
+  <div class="count" id="count"></div>
+  <div class="tablewrap">
+    <table id="board">
+      <thead><tr>
+        <th data-k="rank">#</th>
+        <th data-k="name">Protocol</th>
+        <th data-k="category">Category</th>
+        <th data-k="tvl_usd">TVL</th>
+        <th data-k="change_7d">7d</th>
+        <th data-k="implied_value_usd">Implied value</th>
+        <th data-k="token_odds">Token odds</th>
+        <th data-k="verdict">Verdict</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="hint">Click a row for its detail view: every model term, the value band, the costed farm plan and its nearest token-bearing peers. Click a column header to sort. The page reads its data from a file beside it and makes no network request.</p>
+</main>
+
+<section class="model" id="model"></section>
+
+<footer>
+  <p>Implied value is this board's own claim, fitted from the snapshot's token-bearing peers — never make.fun's, never a prediction that a token will launch. A protocol on this board <strong>records no token</strong>; that is not proof it has none. Farm plans cost real gas and real capital; nothing here is financial advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
